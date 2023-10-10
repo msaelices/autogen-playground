@@ -24,8 +24,8 @@ def main() -> None:
         agents=[user_proxy, pm, github_researcher, code_expert], messages=[])
     manager = autogen.GroupChatManager(groupchat=groupchat, llm_config=llm_config)
 
+    # Get the initial task and start the conversation
     task_msg = input('Task to implement: ')
-    # Start the conversation
     user_proxy.initiate_chat(
         manager,
         message=task_msg,

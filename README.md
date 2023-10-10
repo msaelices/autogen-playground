@@ -1,7 +1,7 @@
 # autogen-playground
 Autogen experiments and playground
 
-autogen-playground is a repository for experimenting with the Microsoft autogen library. The main technical feature of this environment is the usage of "agents" with specific functionalities. These agents collaboratively work to perform specific tasks.                                                                                                                                                                                                                                                                                      
+autogen-playground is a repository for experimenting with the Microsoft [autogen](https://github.com/microsoft/autogen) framework. The main technical feature of this environment is the usage of "agents" with specific functionalities. These agents collaboratively work to perform specific tasks.                                                                                                                                                                                                                                                                                      
 ## Installation
 
 To get a local copy running, follow these steps: 

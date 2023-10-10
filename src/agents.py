@@ -29,10 +29,10 @@ def get_user_proxy(config_list: dict):
     )
 
 
-def get_github_researcher(config_list: dict):
+def get_researcher(config_list: dict):
     return AssistantAgent(
         name='github-researcher',
-        system_message='You are a github researcher, you can use search function to search for code snippets; Reply TERMINATE when your task is done',
+        system_message='You are a researcher, you can use search function to search for code snippets or whatever information we need; Reply TERMINATE when your task is done',
         llm_config={
             'functions': _get_functions(),
             'config_list': config_list,

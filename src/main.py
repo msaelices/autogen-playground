@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-from agents import get_code_expert, get_github_researcher, get_product_manager, get_user_proxy
+from agents import get_code_expert, get_researcher, get_product_manager, get_user_proxy
 
 
 def main() -> None:
@@ -15,7 +15,7 @@ def main() -> None:
 
     # Create agents
     user_proxy = get_user_proxy(config_list=config_list)
-    github_researcher = get_github_researcher(config_list=config_list)
+    github_researcher = get_researcher(config_list=config_list)
     code_expert = get_code_expert(config_list=config_list)
     pm = get_product_manager(config_list=config_list)
 

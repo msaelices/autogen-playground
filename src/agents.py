@@ -7,17 +7,16 @@ def get_code_expert(config_list: dict) -> AssistantAgent:
      return AssistantAgent(
         name='code-expert',
         system_message='You are a code expert, you can use search function to search for code snippets; Reply TERMINATE when your task is done',
+        code_execution_config={'last_n_messages': 2, 'work_dir': 'output', 'use_docker': True},
         llm_config={
             'config_list': config_list,
         },
-        function_map=_get_functions_map(),
      )
 
 
 def get_user_proxy(config_list: dict):
     return UserProxyAgent(
         name='user-proxy',
-        code_execution_config={'last_n_messages': 2, 'work_dir': 'output', 'use_docker': True},
         human_input_mode='ALWAYS',
         llm_config={
             'config_list': config_list,

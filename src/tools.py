@@ -7,9 +7,7 @@ from bs4 import BeautifulSoup
 def search(query):
     url = 'https://google.serper.dev/search'
 
-    payload = json.dumps({
-        'q': query
-    })
+    payload = json.dumps({'q': query})
     headers = {
         'X-API-KEY': os.getenv('SERPER_API_KEY'),
         'Content-Type': 'application/json',

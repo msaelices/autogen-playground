@@ -4,7 +4,7 @@ from tools import search, fetch
 
 
 def get_code_expert(config_list: dict) -> AssistantAgent:
-     return AssistantAgent(
+    return AssistantAgent(
         name='code-expert',
         system_message='You are a code expert, that is able to program and review Python and JS code; Reply TERMINATE when your task is done',
         code_execution_config={'last_n_messages': 2, 'work_dir': 'output', 'use_docker': True},
@@ -13,7 +13,7 @@ def get_code_expert(config_list: dict) -> AssistantAgent:
             'config_list': config_list,
         },
         function_map=_get_functions_map(),
-     )
+    )
 
 
 def get_user_proxy(config_list: dict):
@@ -26,7 +26,7 @@ def get_user_proxy(config_list: dict):
         function_map={
             'search': search,
             'fetch': fetch,
-        }
+        },
     )
 
 
@@ -54,6 +54,7 @@ def get_product_manager(config_list: dict) -> AssistantAgent:
 
 
 # ----- Auxiliary --------------------------------
+
 
 def _get_functions() -> list:
     return [
@@ -86,6 +87,7 @@ def _get_functions() -> list:
             },
         },
     ]
+
 
 def _get_functions_map() -> dict:
     return {

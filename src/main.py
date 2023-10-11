@@ -1,12 +1,10 @@
-
 import autogen
 from autogen import config_list_from_json
-
 from dotenv import load_dotenv
 
-load_dotenv()
-
 from agents import get_code_expert, get_researcher, get_product_manager, get_user_proxy
+
+load_dotenv()
 
 
 def main() -> None:
@@ -20,8 +18,7 @@ def main() -> None:
     pm = get_product_manager(config_list=config_list)
 
     # Set-up chat
-    groupchat = autogen.GroupChat(
-        agents=[user_proxy, pm, researcher, code_expert], messages=[])
+    groupchat = autogen.GroupChat(agents=[user_proxy, pm, researcher, code_expert], messages=[])
     manager = autogen.GroupChatManager(groupchat=groupchat, llm_config=llm_config)
 
     # Get the initial task and start the conversation

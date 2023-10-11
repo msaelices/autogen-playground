@@ -1,10 +1,10 @@
 # autogen-playground
 Autogen experiments and playground
 
-autogen-playground is a repository for experimenting with the Microsoft [autogen](https://github.com/microsoft/autogen) framework. The main technical feature of this environment is the usage of "agents" with specific functionalities. These agents collaboratively work to perform specific tasks.                                                                                                                                                                                                                                                                                      
+autogen-playground is a repository for experimenting with the Microsoft [autogen](https://github.com/microsoft/autogen) framework. The main technical feature of this environment is the usage of "agents" with specific functionalities. These agents collaboratively work to perform specific tasks.
 ## Installation
 
-To get a local copy running, follow these steps: 
+To get a local copy running, follow these steps:
 
 1. Clone the repository
 ```bash
@@ -34,10 +34,10 @@ Task to implement: Your task here
 
 Each agent in the program has its own role:
 
-- `user_proxy`: Initiates the chat with a task message
+- `user-proxy`: Initiates the chat with a task message
 - `researcher`: Fetches data from the internet using the google search engine
-- `code_expert`: Provides coding expertise for the task at hand
-- `product_manager`: Manages the interaction between the other agents
+- `code-expert`: Provides coding expertise for the task at hand
+- `product-manager`: Manages the interaction between the other agents, help break down the initial task into a well scoped requirement
 
 ## Contributing
 

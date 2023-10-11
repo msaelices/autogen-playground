@@ -1,0 +1,6 @@
+[tool.black]
+revision = "main"
+isort = true
+skip_string_normalization = true
+log_level = "INFO"
+line_length = 120

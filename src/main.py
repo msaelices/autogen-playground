@@ -15,13 +15,13 @@ def main() -> None:
 
     # Create agents
     user_proxy = get_user_proxy(config_list=config_list)
-    github_researcher = get_researcher(config_list=config_list)
+    researcher = get_researcher(config_list=config_list)
     code_expert = get_code_expert(config_list=config_list)
     pm = get_product_manager(config_list=config_list)
 
     # Set-up chat
     groupchat = autogen.GroupChat(
-        agents=[user_proxy, pm, github_researcher, code_expert], messages=[])
+        agents=[user_proxy, pm, researcher, code_expert], messages=[])
     manager = autogen.GroupChatManager(groupchat=groupchat, llm_config=llm_config)
 
     # Get the initial task and start the conversation

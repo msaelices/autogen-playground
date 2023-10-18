@@ -1,6 +1,7 @@
 from autogen import AssistantAgent, UserProxyAgent
+from langchain.tools import format_tool_to_openai_function
 
-from tools import search, fetch
+from tools import fetch_tool, search_tool
 
 
 def get_code_expert(config_list: dict) -> AssistantAgent:
@@ -23,10 +24,7 @@ def get_user_proxy(config_list: dict):
         llm_config={
             'config_list': config_list,
         },
-        function_map={
-            'search': search,
-            'fetch': fetch,
-        },
+        function_map=_get_functions_map(),
     )
 
 
@@ -58,39 +56,13 @@ def get_product_manager(config_list: dict) -> AssistantAgent:
 
 def _get_functions() -> list:
     return [
-        {
-            'name': 'search',
-            'description': 'google search for relevant information',
-            'parameters': {
-                'type': 'object',
-                'properties': {
-                    'query': {
-                        'type': 'string',
-                        'description': 'Google search query',
-                    }
-                },
-                'required': ['query'],
-            },
-        },
-        {
-            'name': 'fetch',
-            'description': 'Fetch website content based on URL',
-            'parameters': {
-                'type': 'object',
-                'properties': {
-                    'url': {
-                        'type': 'string',
-                        'description': 'Website url to scrape',
-                    }
-                },
-                'required': ['url'],
-            },
-        },
+        format_tool_to_openai_function(search_tool),
+        format_tool_to_openai_function(fetch_tool),
     ]
 
 
 def _get_functions_map() -> dict:
     return {
-        'search': search,
-        'fetch': fetch,
+        search_tool.name: search_tool._run,
+        fetch_tool.name: fetch_tool._run,
     }
